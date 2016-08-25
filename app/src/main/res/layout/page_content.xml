@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--contentFragment中的一部分是  上面的title和中间一部分 ，
+    ********这个布局整体填充ViewPager的每个page; 使用自定义的viewPager-->
+
+<!--第一部分  标题栏， 然后button只在新闻中心部分显示可见visible，
+                        使用ImageButton不会拉伸图片-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="标题"
+            android:id="@+id/tv_pageview_title"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:background="@drawable/title_red_bg"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_menu"
+            android:visibility="invisible"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/bt_pageview_leftbutton"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_pic_grid_type"
+            android:visibility="invisible"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/bt_pageview_rightbutton"/>
+    </RelativeLayout>
+
+    <!--第二部分 显示新闻数据-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:id="@+id/ll_pageview_content">
+
+    </LinearLayout>
+</LinearLayout>

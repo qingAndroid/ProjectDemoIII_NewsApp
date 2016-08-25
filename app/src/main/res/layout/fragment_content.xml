@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--这是填充到contentFragment的布局：
+    contentFragment  分成两部分，
+    一部分是最下面的几个Button, 点击后 和默认状态下用不同图片，用selector)
+    还有一部分是  上面的title和中间一部分 ，整体填充作为ViewPager的page; 使用自定义的viewPager，-->
+
+    <!--第一部分-->
+    <com.example.fourth.projectdemoiii_newsapp.view.NoScrollViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:id="@+id/vp_fragmentcontent_content"/>
+    <!--第二部分-->
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_tab_bg"
+        android:id="@+id/rg_fragmentcontent_bottom"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <!--radiobutton
+            不显示圆点，用图片替代，需要button=@null
+            设置button点击后和未点击 时显示不同图片和不同颜色文字-->
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_bg_home"
+            android:textColor="@drawable/radiobutton_text_color"
+            android:text="首页"
+            android:id="@+id/rb_fragmentcontent_home"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_bg_news"
+            android:textColor="@drawable/radiobutton_text_color"
+            android:text="新闻中心"
+            android:id="@+id/rb_fragmentcontent_news"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_bg_service"
+            android:textColor="@drawable/radiobutton_text_color"
+            android:text="智慧服务"
+            android:id="@+id/rb_fragmentcontent_service"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_bg_government"
+            android:textColor="@drawable/radiobutton_text_color"
+            android:text="政务"
+            android:id="@+id/rb_fragmentcontent_government"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_bg_setting"
+            android:textColor="@drawable/radiobutton_text_color"
+            android:text="设置"
+            android:id="@+id/rb_fragmentcontent_setting"/>
+    </RadioGroup>
+</LinearLayout>

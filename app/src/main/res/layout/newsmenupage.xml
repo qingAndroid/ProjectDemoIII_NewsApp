@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--在初始化中间部分显示的视图时，将这个xml填充过去-->
+
+<!--
+   &lt;!&ndash;中间部分的页面指示器&ndash;&gt;
+-->
+    <com.viewpagerindicator.TabPageIndicator
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/indicator_newsmenupage_title">
+    </com.viewpagerindicator.TabPageIndicator>
+
+    <!--中间部分的viewPager-->
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp_newsmenupage_content">
+
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

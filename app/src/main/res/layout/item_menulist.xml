@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--
+    android:textColor="@drawable/leftmenutitle_color"
+-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@drawable/leftmenutitle_color"
+        android:drawableLeft="@drawable/leftmenutitle_lefticon"
+        android:padding="15dp"
+        android:enabled="false"
+        android:id="@+id/tv_itemmenulist_menutitle"/>
+    <!--使用enable属性 的值 来控制字体颜色 和图片 的在（xml）selector中的选择
+    可以在点击textview之后，就修改enable的值，从而可以改变图片和文字颜色-->
+</LinearLayout>

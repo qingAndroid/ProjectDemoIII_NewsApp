@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fourth.projectdemoiii_newsapp.GuideActivity">
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp_guideactiviy_guide">
+    </android.support.v4.view.ViewPager>
+
+    <!--页面指示器  灰色的圆点 根据页面个数 动态添加-->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50px"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/fl_guideactivity_indicator">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_guideactivity_indicator">
+        </LinearLayout>
+
+        <View
+            android:layout_width="20px"
+            android:layout_height="20px"
+            android:background="@drawable/redpoint"
+            android:id="@+id/rp_guideactivity_oval"/>
+    </FrameLayout>
+
+    <!--让button位于页面指示器的上面，要使用framelayout的id,所以要放在framelayout下面写-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入首页"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/fl_guideactivity_indicator"
+        android:layout_marginBottom="20px"
+        android:background="@drawable/bt_enter_bg"
+        android:id="@+id/bt_guideactivity_enter"
+        android:onClick="enterHome"/>
+
+</RelativeLayout>

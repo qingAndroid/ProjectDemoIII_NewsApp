@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\res\\merged\\debug\\color\\vpi__dark_theme.xml",
+        "source": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\exploded-aar\\ProjectDemoIII_NewsApp\\library\\unspecified\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\res\\merged\\debug\\color\\vpi__light_theme.xml",
+        "source": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\exploded-aar\\ProjectDemoIII_NewsApp\\library\\unspecified\\res\\color\\vpi__light_theme.xml"
+    }
+]
