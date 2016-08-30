@@ -7,6 +7,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.fourth.toucheventapp.MainActivity">
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <com.example.fourth.toucheventapp.MyLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66ff0000">
+        <com.example.fourth.toucheventapp.MyFrameLayout
+            android:layout_width="400px"
+            android:layout_height="600px"
+            android:background="#ff00f000">
+
+            <com.example.fourth.toucheventapp.MyTextView
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:background="#fafa00"
+                android:text="center"
+                android:textSize="40sp"/>
+        </com.example.fourth.toucheventapp.MyFrameLayout>
+    </com.example.fourth.toucheventapp.MyLinearLayout>
 </RelativeLayout>

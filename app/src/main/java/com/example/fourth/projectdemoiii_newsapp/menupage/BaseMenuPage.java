@@ -10,6 +10,7 @@ import com.example.fourth.projectdemoiii_newsapp.bean.Categories;
  * Created by Administrator on 2016/8/24.
  */
 // 为什么创建BaseMenuPage基类？
+    //888888思想：是用一个类，封装一个要显示的View
 // --------------------------来表示page的中间部分（除去标题栏的那部分）要显示的内容及其相关信息
 // --------------------和BasePage类似，可以让NewsPage的代码和MenuPage显示的代码分离，让代码更清晰
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,10 +16,10 @@
     </com.viewpagerindicator.TabPageIndicator>
 
     <!--中间部分的viewPager-->
-    <android.support.v4.view.ViewPager
+    <com.example.fourth.projectdemoiii_newsapp.view.NewsMenuPageViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/vp_newsmenupage_content">
 
-    </android.support.v4.view.ViewPager>
+    </com.example.fourth.projectdemoiii_newsapp.view.NewsMenuPageViewPager>
 </LinearLayout>

@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fourth.projectdemoiii_newsapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/newsicon"
@@ -19,8 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".GuideActivity" />
-        <activity android:name=".HomeActivity"
-            android:theme="@style/Theme.PageIndicatorDefaults"></activity>
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults" />
+        <activity android:name=".ShowNewsActivity"></activity>
     </application>
 
 </manifest>

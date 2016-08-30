@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:id="@+id/vp_newsdetailpage_topnews">
+
+    </android.support.v4.view.ViewPager>-->
+    <!--使用自定义的viewpager-->
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+        <com.example.fourth.projectdemoiii_newsapp.view.TopNewsViewPager
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/vp_newsdetailpage_topnews">
+        </com.example.fourth.projectdemoiii_newsapp.view.TopNewsViewPager>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#44000000"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/tv_newsdetail_topnewsTitle"
+                android:layout_centerVertical="true"
+                android:text="头条标题"/>
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator_topnews"
+                android:padding="10dip"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                app:radius="5dp"
+                app:fillColor="#FFff0000"
+                app:pageColor="#66000000"
+                app:strokeColor="#44000000"
+                app:strokeWidth="2dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>-->
+
+    <!--<ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_newsdetailpage_newslist">
+
+    </ListView>-->
+
+    <!--给listview增加一个下拉刷新（可以隐藏）、触底加载更多，所以用自定义控件-->
+
+   <com.example.fourth.projectdemoiii_newsapp.view.RefreshListView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/lv_newsdetailpage_newslist">
+
+   </com.example.fourth.projectdemoiii_newsapp.view.RefreshListView>
+</LinearLayout>

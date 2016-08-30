@@ -2,6 +2,7 @@ package com.example.fourth.projectdemoiii_newsapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -69,7 +70,21 @@ public class SplashActivity extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 //当动画结束的时候，调用这个callback
-                startActivity(new Intent(SplashActivity.this,GuideActivity.class));
+
+                //进入这个页面，往sharedpreference中拿flag，看是否进入过这个Guide页面
+                SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+                boolean guide = sp.getBoolean("guide", false);
+                if(!guide){
+
+                    //保证之前没有进入过向导页面，才进入
+                    startActivity(new Intent(SplashActivity.this,GuideActivity.class));
+                }else{
+                    //之前进入过向导页面，直接进主页面
+                    startActivity(new Intent(SplashActivity.this,HomeActivity.class));
+
+                }
+
+
                 finish();
             }
 

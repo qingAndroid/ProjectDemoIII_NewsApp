@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.fourth.projectdemoiii_newsapp.HomeActivity;
 import com.example.fourth.projectdemoiii_newsapp.R;
 import com.example.fourth.projectdemoiii_newsapp.bean.Categories;
+import com.example.fourth.projectdemoiii_newsapp.newsdetailPage.NewsDetailPage;
 import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
@@ -18,35 +20,17 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/8/24.
  */
-//将新闻中心Page的侧边栏中的新闻item  对应的 page中的LinearLayout（MenuPage）的实现分为几部分：
-        // 1、可以用一个ViewPager 实现 ：中间的新闻数据显示的内容可以滑动
-        //2、还有，用一个页面指示器indicator（从json拿到的数据）
-    //所以，首先写一个xml布局，里面放以上两个东西ViewPager和indicator
+//Day4
+//介绍了滑动事件的分发机制，处理了我们app中的滑动冲突问题。\/
 
-//-----------模仿sample中：页面指示器indicator：步骤-----------------
-//    首先要放入两行代码：
-// 1、一个是找indicator,（findViewById）
-// 2、另一个是给indicator设置ViewPager
-//3、重写ViewPager的Apater中的getPageTitle()方法:返回从JSon的children字段中拿的title字段的值
-//4、设置indicator中的文字点击特效（增加下划线）
+//把新闻详情页加上ViewPager，显示头条新闻。发现有新的滑动冲突问题，待处理。\/
 
-
-//给indicator设置ViewPager就必须是在viewPager已经设置好Adapter之后，才能去设置
-//即注意，Indicator的使用，必须要在viewPager设置adapter之后，才能关联到viewPager，
-
-//indicator的特效包括：
-// 1、增加下划线：在SampleTabsDefault这个Activity的主题theme上（Manifest中），
-            // 去修改我们homeActivity的Manifest中的theme
-///2、修改背景为白色：比如在我们的homeActivity的布局文件中的根节点的背景改为白色
-// 3、修改指示器的文字颜色：在样式里面可以修改；（样式的各种设置最后显示都是就近原则）
-                    //文字颜色是因为我们增加下划线时，才变化的，所以我们修改这个theme的样式
-                      // -->这里定义的textColor代表了activity中所有text都是这个颜色
-               //------>theme的样式：修改源码Library中的values文件夹下的vpi_styles.xml中的一个样式
-                    //在源码中修改字体的textSize、
-//                     增加设置textColor、----模仿写selector（在选中和未选中时的颜色）
-//                     background(就是下划线的图片)---->模仿写selector(9-patch图片)
-//                                               --->修改选中状态的图片为我们自己的图片，没选中的用透明背景
-
+//解决了多级ViewPager上的滑动冲突问题。初步实现了新闻页的显示效果。
+    //Day5
+    //部分实现了ListView下拉刷新的功能。
+    //实现了listvie的触底自动加载更多。并实现了点击进入新闻的详情页。
+    //Day6
+    //实现了组图页面的显示。
 public class NewsMenuPage extends BaseMenuPage {
 
     private TabPageIndicator indicator_newsmenupage_title;
@@ -72,6 +56,34 @@ public class NewsMenuPage extends BaseMenuPage {
 
         indicator_newsmenupage_title = (TabPageIndicator) inflate.findViewById(R.id.indicator_newsmenupage_title);
         vp_newsmenupage_content   =  (ViewPager) inflate.findViewById(R.id.vp_newsmenupage_content);
+
+        //不使用事件分发机制去禁止slidingmenu滑动(在这个menupage的自定义viewpager中)
+        // 而是使用HomeActivity的API：所以在page1之后的所有page:,禁止Slidingmenu滑动
+        vp_newsmenupage_content.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //重写API
+                HomeActivity homeActivity = (HomeActivity) NewsMenuPage.this.mActivity;
+
+                if(position==0){
+                    //侧边栏可以滑出
+                    homeActivity.setSlidingMenuEnable(true);
+                }else{
+                    //侧边栏不可以滑动
+                    homeActivity.setSlidingMenuEnable(false);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         return inflate;
     }
@@ -117,7 +129,7 @@ public class NewsMenuPage extends BaseMenuPage {
 
         @Override
         public CharSequence getPageTitle(int position) {
-        //-------设置每个page的title(即Indicator的每个指示项的文字)
+        //-Indicator------设置每个page的title(即Indicator的每个指示项的文字)
             //重写这个方法：显示json中的数据bean中的数据作为Indicator
             return menuDataInfo.children.get(position).title;//super.getPageTitle(position);
         }
@@ -138,17 +150,24 @@ public class NewsMenuPage extends BaseMenuPage {
         public Object instantiateItem(ViewGroup container, int position) {
         //从page集合list中拿出View显示到每个page上
 
-            TextView textview = (TextView) newsMenuPageList.get(position);
+            /*TextView textview = (TextView) newsMenuPageList.get(position);
             //将要显示的View放入容器中
-            container.addView(textview);
-            //返回一个object
-            return textview;//super.instantiateItem(container, position);
+            container.addView(textview);*/
+
+            NewsDetailPage newsDetailPage =
+                    new NewsDetailPage(menuDataInfo.children.get(position), mActivity);
+            View mNewsDetailPage_view = newsDetailPage.mNewsDetailPage_view;
+            //1、将要显示的View放入容器中
+            container.addView(mNewsDetailPage_view);
+
+            //2、返回一个object
+            return mNewsDetailPage_view;//super.instantiateItem(container, position);
         }
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
 
-            container.removeView((TextView) object);
+            container.removeView((View) object);
             //super.destroyItem(container, position, object);
         }
     }

@@ -1,6 +1,7 @@
 package com.example.fourth.projectdemoiii_newsapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,14 @@ public class GuideActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guide);
 
         getSupportActionBar().hide();
+
+
+        //进入这个页面，往sharedpreference中保存flag，表示进入过这个页面
+        SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("guide",true);
+        edit.commit();
+
 
         //找到需要使用的控件
         ll_guideactivity_indicator = (LinearLayout) findViewById(R.id.ll_guideactivity_indicator);

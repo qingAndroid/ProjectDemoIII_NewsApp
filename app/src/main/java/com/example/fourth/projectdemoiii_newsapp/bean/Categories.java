@@ -31,8 +31,8 @@ public class Categories {
         public int type;
         public String url;
         public String urll;
-
         public List<ChildrenInfo> children;
+
         @Override
         public String toString() {
             return "MenuDataInfo{" +
@@ -45,19 +45,20 @@ public class Categories {
         }
     }
 
+    public class ChildrenInfo{
+        //NewsMenuPage的每个page要显示的数据
+        public int id;
+        public String title;//children数组中的title字段，用来作为中间部分的指示器
+        public int type;
+        public String url;//viewpager的具体每个page要显示的数据的url
+                              // -----根据这个url，找到json数据，并解析放到另一个bean(NewsDetail)中
+    }
+
     @Override
     public String toString() {
         return "Categories{" +
                 "retcode=" + retcode +
                 ", data=" + data +
                 '}';
-    }
-
-    public class ChildrenInfo{
-        //NewsMenuPage要显示的数据
-        public int id;
-        public String title;//children数组中的title字段，用来作为中间部分的指示器
-        public int type;
-        public String url;
     }
 }

@@ -59,7 +59,7 @@ public class LeftMenuFragment extends Fragment {
                 myLeftMenuAdapter.notifyDataSetChanged();
 
                 //在这里修改newspage中的View
-                //调用HomeActivity的API
+                //调用HomeActivity的API、ContentFragment的API来获得NewsPage，
                 ContentFragment contentFragment = homeactivity.getContentFragment();
                 NewsPage newsPage = contentFragment.getNewsPage();
                 if (newsPage!=null){

@@ -81,7 +81,9 @@ public class ContentFragment extends Fragment {
                         newsPage.slidingMenuEnable(true);//只有新闻中心page可以将侧边栏滑出
 
                         //当点击radio时，才去拿json解析的数据，并让侧边栏的listview显示
-                        newsPage.getDataFromServer();
+                        //newsPage.getDataFromServer();
+                        //可能是从缓存中拿，也可能是联网拿-----调用NewsPage中的API
+                        newsPage.getData();
                         break;
 
                     case R.id.rb_fragmentcontent_service:
