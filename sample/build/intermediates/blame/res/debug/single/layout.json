@@ -32,12 +32,12 @@
         "source": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\src\\main\\res\\layout\\simple_titles.xml"
     },
     {
-        "merged": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\simple_underlines.xml",
-        "source": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\src\\main\\res\\layout\\simple_underlines.xml"
-    },
-    {
         "merged": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\themed_lines.xml",
         "source": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\src\\main\\res\\layout\\themed_lines.xml"
+    },
+    {
+        "merged": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\simple_underlines.xml",
+        "source": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\src\\main\\res\\layout\\simple_underlines.xml"
     },
     {
         "merged": "D:\\workspace\\Android\\ProjectDemoIII_NewsApp\\sample\\build\\intermediates\\res\\merged\\debug\\layout\\simple_tabs.xml",

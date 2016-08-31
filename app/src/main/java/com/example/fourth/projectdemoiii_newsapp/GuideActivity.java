@@ -14,6 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.fourth.projectdemoiii_newsapp.uitls.ConvertDpToPx;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class GuideActivity extends AppCompatActivity {
     private List<MyPageInfo> myPageInfolist;//每个item对应的page相关的信息类列表
     //要显示的page上的显示视图View(后面用ImageView来放这些图片)
     private int[] imgResIds = new int[]{R.drawable.guide_1,R.drawable.guide_2,R.drawable.guide_3};
+    private int width_px;
 
     //Adapter中返回的object对象
     class MyPageInfo{
@@ -87,7 +90,7 @@ public class GuideActivity extends AppCompatActivity {
                 //已经静态写在布局文件xml中的控件，系统已经将它的属性放在一个LayoutParams中，
                 // 所以直接拿到，不用new出来
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams)rp_guideactivity_oval.getLayoutParams();
-                layoutParams.leftMargin=position*40 + (int)(40*positionOffset);//灰色圆点的宽+灰色圆点的间距为40
+                layoutParams.leftMargin=position*width_px*2 + (int)(2*width_px*positionOffset);//灰色圆点的宽+灰色圆点的间距为40
                 rp_guideactivity_oval.setLayoutParams(layoutParams);
             }
 
@@ -144,15 +147,21 @@ public class GuideActivity extends AppCompatActivity {
         for (int i=0;i<PageCount;i++){
 
             View view = new View(this);
-            //单位是像素//设置viewgroup中子控件的宽高
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(20,20);
+
+            //将20dp转为px单位
+            width_px = ConvertDpToPx.convertDpToPx(20, this);
+
+            //单位是像素,设置viewgroup中子控件的宽高
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width_px, width_px);
             if (i!=0){
-                layoutParams.leftMargin=20;
+                layoutParams.leftMargin= width_px;
                 //相对于左边控件的间距
                 //当前编辑的控件与其父控件之间的距离控制用margin,
                 // 当前编辑的控件内部的内容与其当前的控件之间的距离控制用padding.
                /* Padding 为内边框，指该控件内部内容，如文本/图片距离该控件的边距
-                Margin 为外边框，指该控件距离父控件的边距*/
+                Margin 为外边框，指该控件距离父控件的边距
+                padding是站在父view的角度描述问题，它规定它里面的内容必须与这个父view边界的距离。
+                margin则是站在自己的角度描述问题，规定自己和其他（上下左右）的view之间的距离，如果同一级只有一个view，那么它的效果基本上就和padding一样了。*/
             }
             view.setLayoutParams(layoutParams);
             view.setBackgroundResource(R.drawable.graypoint);

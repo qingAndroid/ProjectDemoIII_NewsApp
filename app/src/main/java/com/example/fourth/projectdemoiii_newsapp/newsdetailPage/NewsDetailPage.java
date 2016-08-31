@@ -86,7 +86,7 @@ public class NewsDetailPage  {
         // ----->因为就应该在创建这个类的时候
         // --->即点击侧边栏的新闻时--->即初始化NewsMenuPage时就需要显示了
         // ---->所以创建这个类的时候，就应该直接将NewsMenuPage的ViewPager的每个page的中的view和数据初始化好
-       mNewsDetailPage_view= initView();
+        mNewsDetailPage_view= initView();
         initData();
     }
     public View initView(){
@@ -338,6 +338,7 @@ public class NewsDetailPage  {
 
     class MyTopNewsViewPagerAdapter extends PagerAdapter{
 
+
        BitmapUtils bitmapUtils;
 
         public MyTopNewsViewPagerAdapter() {
@@ -383,6 +384,9 @@ public class NewsDetailPage  {
     }
     class MyNewsListAdapter extends BaseAdapter{
 
+        //点击具体的每条新闻的item，这里会自动缓存，在没有网络的时候能正常显示
+        //图片能正常显示，是因为BitmapUtils已经帮我们缓存起来了
+        //点击进去看到Webview,正常显示，因为浏览器内核会自动缓存
         BitmapUtils bitmapUtils;
 
         public MyNewsListAdapter() {
