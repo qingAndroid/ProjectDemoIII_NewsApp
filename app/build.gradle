@@ -10,7 +10,21 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a','x86', 'x86_64'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+            //模拟器上x86
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.example.fourth.projectdemoiii_newsapp",
+                JPUSH_APPKEY : "094df51024c4f3a6732c622e", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,6 +34,7 @@ android {
 }
 
 dependencies {
+    compile 'cn.jiguang:jpush:2.1.9'  // 此处以SDK 2.1.8版本为例 2.1.9是最新版本
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile project(':SlidingMenulibrary')
